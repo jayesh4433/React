@@ -1,11 +1,34 @@
-import ExportItem from "./components/ExpenseItem";
+import Expense from "./components/expenses";
 
 function App() {
+  const expenses = [
+    {
+      id: "e1",
+      title: "Toilet Paper",
+      amount: 94.12,
+      date: new Date(2020, 7, 14),
+    },
+    { id: "e2", title: "New TV", amount: 799.49, date: new Date(2021, 2, 12) },
+    {
+      id: "e3",
+      title: "Car Insurance",
+      amount: 294.67,
+      date: new Date(2021, 2, 28),
+    },
+    {
+      id: "e4",
+      title: "New Desk (Wooden)",
+      amount: 450,
+      date: new Date(2021, 5, 12),
+    },
+  ];
+
   return (
     <div>
-      <h2>Hello</h2>
-      <h3>Let start the journey</h3>
-      <ExportItem></ExportItem>
+      <Expense expense={expenses[0]}></Expense>
+      <Expense expense={expenses[1]}></Expense>
+      <Expense expense={expenses[2]}></Expense>
+      <Expense expense={expenses[3]}></Expense>
     </div>
   );
 }

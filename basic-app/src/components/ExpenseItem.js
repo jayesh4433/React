@@ -1,15 +1,13 @@
 import "./ExpenseItem.css";
+import ExpenseDate from "./ExpenseDate.js";
 
-function ExportItem() {
-    const expenseDate = new Date(2022,11,23);
-    const expenseTitle = 'Bike Insurance';
-    const expenseAmount = 4130;
+function ExportItem(props) {
   return (
     <div className="expense-item">
-      <div>{expenseDate.toLocaleDateString()}</div>
+      <ExpenseDate date={props.date} />
       <div className="expense-item__description">
-        <h2>{expenseTitle}</h2>
-        <div className="expense-item__price">{expenseAmount}</div>
+        <h2>{props.item}</h2>
+        <div className="expense-item__price">{props.cost}</div>
       </div>
     </div>
   );
