@@ -26,7 +26,7 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
-  const [year, setYear] = useState("");
+  const [year, setYear] = useState("2020");
 
   const addExpenseDataHandler = (expenseData) => {
     console.log(expenseData);
@@ -38,8 +38,9 @@ function App() {
   return (
     <div>
       <AddExpense onAddExpenseDataHandler={addExpenseDataHandler} />
-      <ExpensesFilter onFilterYear={filterYear} />
+
       <Card>
+        <ExpensesFilter onFilterYear={filterYear} defaultYear={year}/>
         <Expense expense={expenses} selectedYear={year}></Expense>
       </Card>
     </div>
