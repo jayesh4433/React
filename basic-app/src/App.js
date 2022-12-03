@@ -1,6 +1,8 @@
 import Expense from "./components/Expenses/Expenses";
 import Card from "./components/Card/Card";
 import AddExpense from "./components/AddExpense/AddExpense";
+import ExpensesFilter from "./components/ExpenseFilter/ExpensesFilter";
+import { useState } from "react";
 
 function App() {
   const expenses = [
@@ -24,19 +26,21 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+  const [year, setYear] = useState("");
 
   const addExpenseDataHandler = (expenseData) => {
     console.log(expenseData);
+  };
+  const filterYear = (filteredYear) => {
+    setYear(filteredYear);
   };
 
   return (
     <div>
       <AddExpense onAddExpenseDataHandler={addExpenseDataHandler} />
+      <ExpensesFilter onFilterYear={filterYear} />
       <Card>
-        <Expense expense={expenses[0]}></Expense>
-        <Expense expense={expenses[1]}></Expense>
-        <Expense expense={expenses[2]}></Expense>
-        <Expense expense={expenses[3]}></Expense>
+        <Expense expense={expenses} selectedYear={year}></Expense>
       </Card>
     </div>
   );
