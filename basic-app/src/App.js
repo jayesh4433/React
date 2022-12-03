@@ -1,4 +1,6 @@
-import Expense from "./components/expenses";
+import Expense from "./components/Expenses/Expenses";
+import Card from "./components/Card/Card";
+import AddExpense from "./components/AddExpense/AddExpense";
 
 function App() {
   const expenses = [
@@ -23,12 +25,19 @@ function App() {
     },
   ];
 
+  const addExpenseDataHandler = (expenseData) => {
+    console.log(expenseData);
+  };
+
   return (
     <div>
-      <Expense expense={expenses[0]}></Expense>
-      <Expense expense={expenses[1]}></Expense>
-      <Expense expense={expenses[2]}></Expense>
-      <Expense expense={expenses[3]}></Expense>
+      <AddExpense onAddExpenseDataHandler={addExpenseDataHandler} />
+      <Card>
+        <Expense expense={expenses[0]}></Expense>
+        <Expense expense={expenses[1]}></Expense>
+        <Expense expense={expenses[2]}></Expense>
+        <Expense expense={expenses[3]}></Expense>
+      </Card>
     </div>
   );
 }
