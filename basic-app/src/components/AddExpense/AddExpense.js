@@ -1,19 +1,34 @@
+import { useState } from "react";
 import "./AddExpense.css";
 import ExpenseForm from "./ExpenseForm.js";
 
 const AddExpense = (props) => {
+  const [showAddExpense, setShowAddExpense] = useState(false);
+
   const addExpenseDataHandler = (userExpenseData) => {
     const expenseData = {
       ...userExpenseData,
       id: Math.random().toString(),
     };
-    // console.log(expenseData);
     props.onAddExpenseDataHandler(expenseData);
+  };
+
+  const handleClick = () => {
+    setShowAddExpense(true);
   };
 
   return (
     <div className="new-expense">
-      <ExpenseForm onAddExpenseHandler={addExpenseDataHandler} />
+      {showAddExpense ? (
+        <ExpenseForm
+          onAddExpenseHandler={addExpenseDataHandler}
+          setShowAddExpense={setShowAddExpense}
+        />
+      ) : (
+        <button onClick={handleClick} type="submit">
+          Add Expense
+        </button>
+      )}
     </div>
   );
 };
