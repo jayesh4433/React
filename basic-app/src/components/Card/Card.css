@@ -1,11 +1,4 @@
 .card {
   border-radius: 12px;
-  box-shadow: 0 1px 8px rgba(140, 99, 99, 0.295);
-  max-width: 95%;
-  align-items: center;
-  margin: auto;
-  width: 40%;
-  border: 3px solid rgba(41, 43, 67, 0.518);
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.614);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
 }

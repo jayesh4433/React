@@ -1,7 +1,6 @@
 import Expense from "./components/Expenses/Expenses";
-import Card from "./components/Card/Card";
 import AddExpense from "./components/AddExpense/AddExpense";
-import ExpensesFilter from "./components/ExpenseFilter/ExpensesFilter";
+
 import { useState } from "react";
 const initailExpenses = [
   {
@@ -25,24 +24,17 @@ const initailExpenses = [
   },
 ];
 function App() {
-  const [year, setYear] = useState("2020");
   const [expenses, setExpenses] = useState(initailExpenses);
   const addExpenseDataHandler = (expenseData) => {
     setExpenses((prevExpense) => {
       return [expenseData, ...prevExpense];
     });
   };
-  const filterYear = (filteredYear) => {
-    setYear(filteredYear);
-  };
 
   return (
     <div>
       <AddExpense onAddExpenseDataHandler={addExpenseDataHandler} />
-      <Card>
-        <ExpensesFilter onFilterYear={filterYear} defaultYear={year} />
-        <Expense expense={expenses} selectedYear={year}></Expense>
-      </Card>
+      <Expense expense={expenses}></Expense>
     </div>
   );
 }
